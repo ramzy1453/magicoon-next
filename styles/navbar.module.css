@@ -1,0 +1,20 @@
+.gradient-button {
+  color: #fff;
+  text-align: center;
+  background-size: 300% 100%;
+  transition: all 0.4s ease-in-out;
+  background-image: linear-gradient(90deg, #c76ec4, #396ce8, #396ce8, #c76ec4);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gradient-button:hover {
+  background-position: 100% 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.gradient-button:focus {
+  outline: none;
+}
