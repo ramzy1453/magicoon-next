@@ -10,17 +10,17 @@ interface Mail {
 export function sendMail({ name, from, subject, text }: Mail) {
   return new Promise((resolve, reject) => {
     const transporter = nodemailer.createTransport({
-      host: "magicoon.com",
+      host: process.env.host_smtp,
       port: 465,
       secure: true,
       auth: {
-        user: "react@magicoon.com",
-        pass: "Ru22io70$",
+        user: process.env.user_smtp,
+        pass: process.env.pass_smtp,
+      },
+      tls: {
+        rejectUnauthorized: false,
       },
     });
-
-    // SeyfDevDz2024
-    // Ru22io70$
 
     transporter.sendMail(
       {
@@ -35,7 +35,7 @@ export function sendMail({ name, from, subject, text }: Mail) {
       },
       (error, info) => {
         if (error) {
-          resolve({
+          reject({
             error: true,
             message: error.message,
           });
